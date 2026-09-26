@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>هما | سامانه هوشمند همکاری محله‌ای آسان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--p:#147c80;--p2:#0f9d83;--ink:#19344a;--muted:#66798a;--bg:#f7fbfb;--line:#dfebed;--card:#fff;--gold:#f5c65c;--r:22px;--shadow:0 14px 45px #18344a12}
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:var(--bg);line-height:1.9}a{text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#ffffffee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--ink)}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--p),#5bcaa1);display:grid;place-items:center;color:#fff;font-size:22px}.brand small{display:block;font-size:10px;color:var(--muted);font-weight:500}.navlinks{display:flex;gap:20px;font-size:13px;color:#4f6677}.btn{border:0;border-radius:14px;padding:11px 17px;font-family:inherit;font-weight:700;cursor:pointer}.primary{background:var(--p);color:#fff}.light{background:#fff;border:1px solid var(--line);color:var(--ink)}.hero{padding:70px 0;background:radial-gradient(circle at 10% 15%,#dff8ed,transparent 28%),linear-gradient(135deg,#eefbfd,#fffaf0)}.grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:38px;align-items:center}h1{font-size:clamp(34px,5vw,55px);line-height:1.25;margin:15px 0}.accent{color:var(--p)}.lead{color:var(--muted);font-size:16px}.actions{display:flex;gap:10px;flex-wrap:wrap}.visual{height:280px;background:linear-gradient(#dff7fb 0 60%,#e1f3e8 60%);border-radius:30px;box-shadow:var(--shadow);display:grid;place-items:center;font-size:95px}.section{padding:60px 0}.center{text-align:center}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}.icon{font-size:28px}.muted{color:var(--muted)}h2{margin:0 0 8px}.forms{display:grid;grid-template-columns:1fr 1fr;gap:18px}label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px}input,select,textarea{width:100%;padding:11px;border:1px solid #d9e5e8;border-radius:12px;font-family:inherit;font-size:14px;background:#fcfefe}textarea{min-height:95px}.msg{margin-top:10px;padding:10px;border-radius:12px;background:#f1f8f7;font-size:12px;display:none}.auth{max-width:520px;margin:auto}.hide{display:none!important}.dash{display:grid;grid-template-columns:220px 1fr;gap:18px}.side button{width:100%;margin:5px 0;text-align:right}.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}.stat b{font-size:25px}.tablewrap{overflow:auto;margin-top:18px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#e9f7f1;color:#176d5b;font-size:11px}.danger{background:#fff0f0;color:#a33}.mosque{background:#19344a;color:#fff;border-radius:28px;padding:30px}.mosque p{color:#c8d6df}.toast{position:fixed;bottom:18px;right:18px;background:#19344a;color:#fff;padding:12px 16px;border-radius:14px;display:none;z-index:50}
+@media(max-width:800px){.grid2,.forms,.dash{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.navlinks{display:none}.statgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}.hero{padding:45px 0}.visual{height:210px;font-size:70px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#top"><span class="logo">ه</span><span>هما<small>سامانه هوشمند همکاری محله‌ای آسان</small></span></a>
+<div class="navlinks"><a href="#services">خدمات</a><a href="#join">عضویت</a><a href="#find">جست‌وجو</a><a href="#about">درباره هما</a></div>
+<button class="btn primary" onclick="showAuth()">ورود / ثبت‌نام</button>
+</nav></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid2"><div>
+<span class="pill">🤝 یک محله، هزار ظرفیت</span>
+<h1>همسایه‌یار؛ <span class="accent">همیاران محلّه</span></h1>
+<p class="lead">پویشی برای پیدا کردن توانمندی‌ها، ثبت نیازها و ساختن شبکه‌ای واقعی از همکاری میان همسایه‌ها.</p>
+<div class="actions"><button class="btn primary" onclick="document.querySelector('#join').scrollIntoView()">ثبت توانمندی</button><button class="btn light" onclick="document.querySelector('#join').scrollIntoView()">ثبت نیاز</button></div>
+</div><div class="visual">🏡🤝🏡</div></div></section>
+
+<section class="section" id="services"><div class="wrap"><div class="center"><h2>هما چه چیزی را به هم وصل می‌کند؟</h2><p class="muted">از یک کمک ساده تا شکل‌گیری یک شبکه اجتماعی واقعی در محله.</p></div><br>
+<div class="cards">
+<div class="card"><div class="icon">🛠️</div><h3>مهارت و خدمات</h3><p class="muted">تعمیرات، کار فنی، آموزش، کامپیوتر و خدمات دیگر.</p></div>
+<div class="card"><div class="icon">🙋</div><h3>نیازهای محله</h3><p class="muted">نیاز خود را ثبت کنید تا افراد دارای توانایی آن را ببینند.</p></div>
+<div class="card"><div class="icon">🎁</div><h3>اشتراک وسایل</h3><p class="muted">کتاب، ابزار و وسایل قابل استفاده را به دیگران معرفی کنید.</p></div>
+<div class="card"><div class="icon">👵</div><h3>یاری به سالمندان</h3><p class="muted">خرید و کارهای روزمره با کمک همسایه‌های داوطلب.</p></div>
+<div class="card"><div class="icon">💼</div><h3>فرصت‌های شغلی</h3><p class="muted">معرفی توانمندی‌ها و فرصت‌های کاری محله.</p></div>
+<div class="card"><div class="icon">🏪</div><h3>تخفیف محلی</h3><p class="muted">معرفی خدمات و تخفیف‌های ویژه کسب‌وکارهای محله.</p></div>
+</div></div></section>
+
+<section class="section" id="join"><div class="wrap"><div class="center"><h2>ثبت همکاری در هما</h2><p class="muted">ابتدا وارد حساب شوید یا ثبت‌نام کنید.</p></div><br>
+<div class="forms">
+<div class="panel"><h3>🛠️ ثبت توانمندی</h3>
+<label>عنوان توانمندی</label><input id="capTitle" placeholder="مثلاً تعمیر لوازم خانگی">
+<label>دسته‌بندی</label><select id="capCat"><option>تعمیرات و کار فنی</option><option>آموزش و تدریس</option><option>کامپیوتر و موبایل</option><option>حمل‌ونقل و خرید</option><option>مشاوره</option><option>هنری و خیاطی</option><option>اشتراک یا اهدای وسایل</option><option>کسب‌وکار</option><option>سایر</option></select>
+<label>توضیح</label><textarea id="capDesc" placeholder="توضیح کوتاه درباره نوع همکاری"></textarea><button class="btn primary" onclick="addCapacity()">ثبت توانمندی</button><div class="msg" id="capMsg"></div>
+</div>
+<div class="panel"><h3>🙋 ثبت نیاز</h3>
+<label>عنوان نیاز</label><input id="needTitle" placeholder="مثلاً کمک برای تعمیر کولر">
+<label>دسته‌بندی</label><select id="needCat"><option>تعمیرات</option><option>آموزش</option><option>خرید و کمک به سالمند</option><option>حمل‌ونقل</option><option>نیاز به وسیله</option><option>کار و فرصت شغلی</option><option>خدمات دیجیتال</option><option>سایر</option></select>
+<label>توضیح</label><textarea id="needDesc" placeholder="شرح کوتاه نیاز"></textarea><button class="btn primary" onclick="addNeed()">ثبت نیاز</button><div class="msg" id="needMsg"></div>
+</div></div></div></section>
+
+<section class="section" id="find"><div class="wrap"><div class="center"><h2>پیدا کردن همسایه</h2><p class="muted">فهرست توانمندی‌های تأییدشده را جست‌وجو کنید.</p></div><br><div class="panel"><div class="forms" style="grid-template-columns:1fr 1fr"><input id="searchQ" placeholder="مثلاً تعمیرکار یا معلم"><select id="searchCat"><option value="">همه دسته‌ها</option><option>تعمیرات و کار فنی</option><option>آموزش و تدریس</option><option>کامپیوتر و موبایل</option><option>حمل‌ونقل و خرید</option><option>مشاوره</option><option>هنری و خیاطی</option><option>اشتراک یا اهدای وسایل</option><option>کسب‌وکار</option><option>سایر</option></select></div><br><button class="btn primary" onclick="searchCaps()">جست‌وجو</button><div id="results"></div></div></div></section>
+
+<section class="section" id="about"><div class="wrap"><div class="mosque"><h2>مسجد مسلم بن عقیل (ع)؛ پایگاه مردم‌دوست محلّه</h2><p>«هما» می‌تواند با پشتیبانی فرهنگی عوامل فرهنگی مسجد مسلم بن عقیل، بستری برای احیای فرهنگ همسایگی، تعاون و خدمت به مردم محله باشد.</p><a class="btn light" href="https://eitaa.com/Hamsayeh_Yar" target="_blank">📲 کانال همسایه‌یار در ایتا</a></div></div></section>
+
+<section class="section hide" id="dashboard"><div class="wrap"><h2>پنل مدیریت هما</h2><div class="dash"><div class="panel side"><button class="btn light" onclick="loadAdmin()">📊 داشبورد</button><button class="btn light" onclick="adminCaps()">🛠️ توانمندی‌ها</button><button class="btn light" onclick="adminNeeds()">🙋 نیازها</button><button class="btn light" onclick="adminProfiles()">👥 اعضا</button><button class="btn light" onclick="logout()">خروج</button></div><div id="adminMain" class="panel"></div></div></div></section>
+
+<section class="section hide" id="auth"><div class="wrap"><div class="panel auth"><h2>ورود / ثبت‌نام</h2><p class="muted">برای نسخه واقعی، ایمیل و رمز عبور استفاده می‌شود. بعداً می‌توان ورود با شماره موبایل را اضافه کرد.</p>
+<label>ایمیل</label><input id="email" type="email" placeholder="name@example.com"><label>رمز عبور</label><input id="password" type="password" placeholder="حداقل 8 کاراکتر"><br><br><button class="btn primary" onclick="signup()">ثبت‌نام</button> <button class="btn light" onclick="login()">ورود</button><div class="msg" id="authMsg"></div></div></div></section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const SUPABASE_URL="https://wpgkerulcqmqccdkwrkk.supabase.co", SUPABASE_ANON_KEY="sb_publishable_kkgaem6FR4fZbjh0z-tTsA_aZiGO_3P";
+let sb=null; if(!SUPABASE_URL.startsWith("YOUR_")) sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+function toast(x){let t=document.getElementById('toast');t.textContent=x;t.style.display='block';setTimeout(()=>t.style.display='none',2500)}
+function showAuth(){document.getElementById('auth').classList.remove('hide');document.getElementById('auth').scrollIntoView()}
+async function signup(){if(!sb)return toast("ابتدا کلیدهای Supabase را در فایل تنظیم کنید.");let e=email.value.trim(),p=password.value;let {error}=await sb.auth.signUp({email:e,password:p});showMsg('authMsg',error?error.message:"ثبت‌نام انجام شد. ایمیل خود را تأیید کنید.");}
+async function login(){if(!sb)return toast("ابتدا کلیدهای Supabase را در فایل تنظیم کنید.");let {data,error}=await sb.auth.signInWithPassword({email:email.value.trim(),password:password.value});showMsg('authMsg',error?error.message:"ورود موفق بود.");if(!error){toast("خوش آمدید 🌱");await checkUser();}}
+async function logout(){if(sb)await sb.auth.signOut();document.getElementById('dashboard').classList.add('hide');toast("خارج شدید.");}
+function showMsg(id,x){let e=document.getElementById(id);e.textContent=x;e.style.display='block'}
+async function user(){if(!sb)return null;return (await sb.auth.getUser()).data.user}
+async function addCapacity(){let u=await user();if(!u)return showAuth();let {error}=await sb.from('capacities').insert({user_id:u.id,title:capTitle.value,category:capCat.value,description:capDesc.value});showMsg('capMsg',error?error.message:"توانمندی ثبت شد و پس از تأیید مدیر نمایش داده می‌شود.");}
+async function addNeed(){let u=await user();if(!u)return showAuth();let {error}=await sb.from('needs').insert({user_id:u.id,title:needTitle.value,category:needCat.value,description:needDesc.value});showMsg('needMsg',error?error.message:"نیاز شما ثبت شد و برای بررسی مدیر ارسال شد.");}
+async function searchCaps(){if(!sb)return toast("اتصال دیتابیس هنوز تنظیم نشده است.");let q=searchQ.value.trim(),cat=searchCat.value;let query=sb.from('capacities').select('id,title,category,description,user_id,profiles(display_name,neighborhood)').eq('status','approved');if(cat)query=query.eq('category',cat);if(q)query=query.or(`title.ilike.%${q}%,description.ilike.%${q}%`);let {data,error}=await query.limit(30);document.getElementById('results').innerHTML=error?'<p class="muted">'+error.message+'</p>':(data||[]).map(x=>`<div class="card" style="margin-top:12px"><b>${x.title}</b><div class="pill">${x.category}</div><p class="muted">${x.description||''}</p><small>${x.profiles?.display_name||'همسایه هما'} ${x.profiles?.neighborhood?' · '+x.profiles.neighborhood:''}</small></div>`).join('')||'<p class="muted">موردی پیدا نشد.</p>'}
+async function checkUser(){let u=await user();if(!u)return;let {data}=await sb.from('profiles').select('role').eq('id',u.id).single();if(data?.role==='admin'){document.getElementById('dashboard').classList.remove('hide');loadAdmin()}}
+async function loadAdmin(){let [p,c,n]=await Promise.all([sb.from('profiles').select('id',{count:'exact',head:true}),sb.from('capacities').select('id',{count:'exact',head:true}),sb.from('needs').select('id',{count:'exact',head:true})]);document.getElementById('adminMain').innerHTML=`<div class="statgrid"><div class="stat">اعضا<br><b>${p.count||0}</b></div><div class="stat">توانمندی<br><b>${c.count||0}</b></div><div class="stat">نیازها<br><b>${n.count||0}</b></div><div class="stat">وضعیت<br><b>فعال</b></div></div><p class="muted">از منوی کناری برای مدیریت داده‌ها استفاده کنید.</p>`}
+async function adminCaps(){let {data,error}=await sb.from('capacities').select('id,title,category,status,created_at,profiles(display_name)').order('created_at',{ascending:false});document.getElementById('adminMain').innerHTML=table(data,error,'توانمندی‌ها','capacity')}
+async function adminNeeds(){let {data,error}=await sb.from('needs').select('id,title,category,status,created_at,profiles(display_name)').order('created_at',{ascending:false});document.getElementById('adminMain').innerHTML=table(data,error,'نیازها','need')}
+async function adminProfiles(){let {data,error}=await sb.from('profiles').select('id,display_name,neighborhood,role,created_at').order('created_at',{ascending:false});document.getElementById('adminMain').innerHTML=table(data,error,'اعضا','profile')}
+function table(data,error,title,type){if(error)return `<p>${error.message}</p>`;let rows=(data||[]).map(x=>`<tr><td>${x.title||x.display_name||''}</td><td>${x.category||x.neighborhood||x.role||''}</td><td>${x.status||''}</td><td>${type==='capacity'||type==='need'?`<button class="btn light" onclick="moderate('${type}','${x.id}','approved')">تأیید</button> <button class="btn light" onclick="moderate('${type}','${x.id}','rejected')">رد</button>`:''}</td></tr>`).join('');return `<h3>${title}</h3><div class="tablewrap"><table><tr><th>عنوان/نام</th><th>دسته</th><th>وضعیت</th><th>عملیات</th></tr>${rows}</table></div>`}
+async function moderate(type,id,status){let table=type==='capacity'?'capacities':'needs';let {error}=await sb.from(table).update({status}).eq('id',id);toast(error?error.message:"تغییر وضعیت انجام شد.");type==='capacity'?adminCaps():adminNeeds()}
+if(sb)sb.auth.onAuthStateChange((_e)=>checkUser());
+</script>
+</body></html>
